@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model SkipObject {
+  id   Int     @id @default(autoincrement())
+  name String
+  description String?
+  createdAt DateTime @default(now())
+  images String?
+  taken Boolean @default(false)
+  takenQuantity Int @default(0)
+  quantityMin Int @default(1)
+  quantityMax Int @default(1)
+  latitude Float
+  longitude Float
+  // TODO: Add an owner
+}
